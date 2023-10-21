@@ -1,0 +1,12 @@
+.meals-select {
+    box-shadow: 5px 5px 10px;
+}
+
+.meals-select select {
+    color: rgb(100, 132, 132);
+    background-color: #f9f9f7;
+    width: 170px;
+    padding: 7px;
+    font-size: 15px;
+    border: 2px solid rgb(155, 155, 215);
+}

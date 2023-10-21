@@ -1,0 +1,22 @@
+.clear-all {
+    position: fixed;
+    top: 110px;
+    right: 70px;
+}
+
+.btn-clear-all {
+    width: 120px;
+    color: rgb(65, 56, 45);
+    background-color: rgb(8, 156, 205);
+    outline: none;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(13, 102, 237);
+}
+
+.btn-clear-all:hover {
+    box-shadow: 5px 5px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+span {
+    color: rgb(97, 101, 103);
+}
+
+
+.counter {
+    color: rgb(5, 89, 110);
+    left: 50px;
+    top: 90px;
+    position: fixed;
+}
