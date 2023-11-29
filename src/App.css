@@ -4,6 +4,7 @@
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .meals-container {

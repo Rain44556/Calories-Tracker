@@ -9,3 +9,11 @@ span {
     top: 90px;
     position: fixed;
 }
+
+@media screen and (max-width: 768px) {
+    .counter {
+        font-size: 1.3rem;
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+}

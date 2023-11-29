@@ -8,12 +8,15 @@ import MealsList from './Componenets/MealsList/MealsList';
 import TrackerModal from './Componenets/TrackerModal/TrackerModal';
 import MealsFilter from './Componenets/MealsFilter/MealsFilter';
 
+  
 const App = () => {
 const [meals, setMeals] = useState([]);
 const [mealsName, setMealsName] =useState("");
 const [calories, setCalories] = useState(0);
 const [openModal, setOpenModal] = useState(false);
 const [filterSelected, setFilterSelected] = useState("");
+
+
 
 
 const addMealsHandler = () =>{
@@ -37,6 +40,7 @@ setCalories(0);
 const clearMealHandler =(id) =>{
 const mealsOld = [...meals];
 const mealsNew =mealsOld.filter((meal)=>meal.id !== id);
+
 setMeals(mealsNew);
 localStorage.setItem("meals",JSON.stringify(mealsNew));
 }
@@ -46,35 +50,43 @@ const clearAllMeals = () =>{
   localStorage.clear();
 }
 
-const total =meals !== null ? meals.map((meal)=>meal.calories).reduce((acc,value)=> acc + +value, 0) : 0;
+const total =meals !== null ? meals
+ .map((meal)=>meal.calories)
+ .reduce((acc,value)=> acc + +value, 0) : 0;
+
 
  useEffect(() => {
   const oldState = [...meals];
   if(filterSelected === "Ascending"){
-const mealsAscending = oldState.sort((a,b)=> a.calories - b.calories);
-setMeals(mealsAscending);
-  }else if(filterSelected === "Descending"){
+    const mealsAscending = oldState.sort((a,b)=> a.calories - b.calories);
+    setMeals(mealsAscending);
+  }
+  else if(filterSelected === "Descending"){
     const mealsDescending = oldState.sort((a,b)=> b.calories- a.calories);
     setMeals(mealsDescending);
   }
-}, [filterSelected]);
+      }, [filterSelected]);
 
-useEffect(()=>{
+
+  useEffect(()=>{
   const mealsLocalStorage = JSON.parse(localStorage.getItem("meals"));
-setMeals(mealsLocalStorage);
-}, [setMeals]);
+  setMeals(mealsLocalStorage);
+  }, [setMeals]);
+
+
   return (
     <div className="App">
       <TrackerBar></TrackerBar>
      { openModal ? <TrackerModal setOpenModal={setOpenModal}></TrackerModal> : ""}
       <TrackerControlsCounter total={total}></TrackerControlsCounter>
       <TrackerControlsDelete clearAllMeals={clearAllMeals}></TrackerControlsDelete>
-      <TrackerControlsInputs addMealsHandler={addMealsHandler} mealsName={mealsName} calories={calories} setMealsName={setMealsName} setCalories={setCalories}></TrackerControlsInputs>
+      <TrackerControlsInputs addMealsHandler={addMealsHandler} mealsName={mealsName} calories={calories} 
+      setMealsName={setMealsName} setCalories={setCalories}></TrackerControlsInputs>
 
-<div className='meals-container'>
-  <MealsFilter filterSelected={filterSelected} setFilterSelected={setFilterSelected}></MealsFilter>
-  <MealsList meals={meals} clearMealHandler={clearMealHandler}></MealsList>
-</div>
+    <div className='meals-container'>
+    <MealsFilter filterSelected={filterSelected} setFilterSelected={setFilterSelected}></MealsFilter>
+    <MealsList meals={meals} clearMealHandler={clearMealHandler}></MealsList>
+    </div>
 
     </div>
   );

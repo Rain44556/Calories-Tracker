@@ -15,7 +15,7 @@
 
 .inputs input {
     padding: 10px;
-    margin: 5px auto;
+    margin: 5px;
     font-size: 20px;
     border: 3px solid hwb(243 32% 46%);
     background-color: hwb(60 98% 2%);
@@ -34,7 +34,7 @@
     text-align: center;
     color: rgb(65, 56, 45);
     background-color: rgb(8, 156, 205);
-    margin: 10px auto;
+    margin: 10px;
     font-size: 20px;
     border-radius: 5px;
     border: 1px solid rgb(13, 102, 237);
@@ -44,4 +44,22 @@
 .inputs button:hover {
     cursor: pointer;
     box-shadow: 5px 5px 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .inputs {
+        margin-top: 20rem;
+    }
+
+    .inputs input {
+        padding: 15px;
+    }
+
+    .inputs button {
+        margin-top: 20px;
+        width: 230px;
+        padding: 10px;
+    }
+
 }

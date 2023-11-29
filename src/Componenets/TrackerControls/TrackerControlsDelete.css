@@ -20,3 +20,13 @@
     box-shadow: 5px 5px 10px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .btn-clear-all {
+        padding: 15px;
+        margin-top: 7rem;
+        margin-right: 4rem;
+        font-size: 1.2rem;
+    }
+
+}
